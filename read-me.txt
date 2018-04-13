@@ -1,0 +1,24 @@
+// Table required for log 
+
+CREATE TABLE `wpasmtbl_request_debug_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `session_values` text,
+  `url` varchar(255) DEFAULT NULL,
+  `error_message` varchar(255) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `ip_address` varchar(20) DEFAULT NULL,
+  `server_name` varchar(50) DEFAULT NULL,
+  `exception_type` varchar(25) DEFAULT NULL,
+  `request_start_time` datetime DEFAULT NULL,
+  `is_async_request` tinyint(1) DEFAULT NULL,
+  `post_data` text,
+  `response_data` text,
+  `request_type` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+// create a log record
+
+log_debug_output_to_table('Newsletter Request Reject', $parameters );
